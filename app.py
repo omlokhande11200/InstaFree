@@ -26,7 +26,7 @@ CORS(app, resources={r"/*": {"origins": "https://freeinsta.vercel.app"}})
 
 
 # Flask-Limiter for rate limiting
-limiter = Limiter(get_remote_address, app=app, default_limits=["100 per hour"])
+limiter = Limiter(get_remote_address, app=app, default_limits=["1000 per hour"])
 
 # Instaloader and Whisper model initialization
 L = instaloader.Instaloader()
@@ -168,7 +168,7 @@ def home():
     return jsonify({"message": "Instagram Bot API is Running!"})
 
 @app.route("/download/reel", methods=["GET"])
-@limiter.limit("10/minute")  # Apply rate limiting to this endpoint
+@limiter.limit("100/minute")  # Apply rate limiting to this endpoint
 def download_instagram_reel():
     """API to download an Instagram Reel."""
     try:
