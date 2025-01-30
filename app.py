@@ -22,7 +22,7 @@ API_KEY = os.getenv("API_KEY", "default-api-key")
 
 # Flask app initialization
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
 
 # Flask-Limiter for rate limiting
