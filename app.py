@@ -22,7 +22,7 @@ API_KEY = os.getenv("API_KEY", "default-api-key")
 
 # Flask app initialization
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "https://freeinsta.vercel.app"}})
+CORS(app)
 
 
 # Flask-Limiter for rate limiting
